@@ -1,0 +1,109 @@
+コンテナ型ハイパーバイザ「LXD」を使ってみよう
+29 Oct 2016
+Tags:
+
+Hironobu Saitoh
+hiro@hironobu.org
+@hironobu_s
+
+* About me
+
+斉藤弘信 (@hironobu_s)
+
+- ソフトウェアエンジニア
+- お仕事としてクラウドのエバンジェリスト
+- 日本OpenStackユーザー会メンバー
+- Ubuntuユーザー
+- Go書いたりしてます
+
+.image https://avatars2.githubusercontent.com/u/6347309?v=3&s=200
+
+* 今日のお話
+
+*LXDを知ってもらいたい*
+
+.image https://3.bp.blogspot.com/-9BYt_RrBX2Q/VyIpK7b4IAI/AAAAAAAAC3Y/aaZ20OfsJXMuLlCpybXTTLnmetV8gSlwgCLcB/s1600/lxd.png
+
+* LXC(LinuX Container)
+
+Linuxカーネルへのインターフェイスを提供するもの
+
+- カーネルのnamespaces, chroot, CGroupsなどを利用し
+- 複数の隔離されたシステムを動かす(=コンテナ)機能を提供する
+- liblxcライブラリと言語バインディング
+- 以前はDockerも使っていた(0.9まで)
+
+.link https://linuxcontainers.org/ja/lxc/introduction/
+
+* LXD
+
+LXCを利用したコンテナ型の「ハイパーバイザー」
+
+- LXC上でLinuxのフルセットを動かす
+- LXCにマルチホスト対応、イメージ、マイグレ機能などを追加した感じ
+- デーモン(lxd)とCLIクライアント(lxc)のクライアント/サーバモデル
+- Canonical LtdとUbuntuが開発を主導
+- 現在は2.0系列(日本語の解説は1.0が多いので注意)
+
+.image https://3.bp.blogspot.com/-9BYt_RrBX2Q/VyIpK7b4IAI/AAAAAAAAC3Y/aaZ20OfsJXMuLlCpybXTTLnmetV8gSlwgCLcB/s1600/lxd.png
+
+* おさらい
+
+コンテナとハイパーバイザーの違い
+
+.image http://en.community.dell.com/cfs-file/__key/communityserver-wikis-components-files/00-00-00-01-55/lxc_2D00_vm.jpg _ 700
+
+
+* Dockerとの違い
+
+ポリシーが違う
+
+*Docker*
+
+- Application container
+- 1コンテナ1プロセス
+- Stateless, Shared nothingが望ましい
+
+*LXD*
+
+- System container / Server container
+- Linuxのフルシステムを走らせる
+- Statefulである
+
+* Demo
+
+見た方がわかりやすい
+
+- lxcイメージ
+- lxcコンテナを立てる
+- dockerでubuntuを立ててプロセスリストの比較
+
+* 個人的によかったところ
+
+- VMと同じように使える割にVMより軽い
+- 一通りLinuxディストリのイメージが用意されている
+- Dockerと共存できる(LXD上でDockerを走らせることもできる
+- LXD on LXDもできる
+- OpenStackの各コンポーネントを分離するのに便利っぽい
+- LXDホスト間でコンテナを簡単に移行できる
+- ストレージやネットワークデバイスを無停止でアタッチ/デタッチできる
+
+* デモサイトがある
+
+オンラインデモ
+.link https://linuxcontainers.org/ja/lxd/try-it/
+
+
+* 情報源
+
+LXD イントロダクション
+.link https://linuxcontainers.org/ja/lxd/
+
+オンラインデモ
+.link https://linuxcontainers.org/ja/lxd/try-it/
+
+LXD 2.0: Blog post series [0/12]
+.link https://www.stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/
+
+(日本語訳)LXD 2.0: Blog post series [0/12]
+.link http://qiita.com/m-shibata/items/029b19d90af2a79116c2
