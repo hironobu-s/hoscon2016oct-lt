@@ -8,19 +8,23 @@ hiro@hironobu.org
 
 * About me
 
-斉藤弘信 (@hironobu_s)
+斉藤弘信 @hironobu_s
 
 - ソフトウェアエンジニア
-- お仕事としてクラウドのエバンジェリスト
+- お仕事はクラウドのエバンジェリスト
 - 日本OpenStackユーザー会メンバー
 - Ubuntuユーザー
 - Go書いたりしてます
 
 .image https://avatars2.githubusercontent.com/u/6347309?v=3&s=200
 
+* このLTは5分です
+
+.image https://github.com/hironobu-s/hoscon2016oct-lt/blob/master/tweet.png?raw=true _ 1000
+
 * 今日のお話
 
-*LXDを知ってもらいたい*
+たぶんあまり知られていないLXDのこと
 
 .image https://3.bp.blogspot.com/-9BYt_RrBX2Q/VyIpK7b4IAI/AAAAAAAAC3Y/aaZ20OfsJXMuLlCpybXTTLnmetV8gSlwgCLcB/s1600/lxd.png
 
@@ -45,14 +49,15 @@ LXCを利用したコンテナ型の「ハイパーバイザー」
 - Canonical LtdとUbuntuが開発を主導
 - 現在は2.0系列(日本語の解説は1.0が多いので注意)
 
-.image https://3.bp.blogspot.com/-9BYt_RrBX2Q/VyIpK7b4IAI/AAAAAAAAC3Y/aaZ20OfsJXMuLlCpybXTTLnmetV8gSlwgCLcB/s1600/lxd.png
+.image https://3.bp.blogspot.com/-9BYt_RrBX2Q/VyIpK7b4IAI/AAAAAAAAC3Y/aaZ20OfsJXMuLlCpybXTTLnmetV8gSlwgCLcB/s1600/lxd.png 150 _
+
+.image https://linuxcontainers.org/static/img/canonical.png 30 _
 
 * おさらい
 
 コンテナとハイパーバイザーの違い
 
 .image http://en.community.dell.com/cfs-file/__key/communityserver-wikis-components-files/00-00-00-01-55/lxc_2D00_vm.jpg _ 700
-
 
 * Dockerとの違い
 
@@ -78,21 +83,22 @@ LXCを利用したコンテナ型の「ハイパーバイザー」
 - lxcコンテナを立てる
 - dockerでubuntuを立ててプロセスリストの比較
 
-* 個人的によかったところ
+* 個人的に気に入ってるところ
+
+コンテナといってもDockerが欲しいとは限らない
 
 - VMと同じように使える割にVMより軽い
 - 一通りLinuxディストリのイメージが用意されている
-- Dockerと共存できる(LXD上でDockerを走らせることもできる
-- LXD on LXDもできる
-- OpenStackの各コンポーネントを分離するのに便利っぽい
+- Dockerと共存できる(LXD上でDockerを走らせることもできる)
 - LXDホスト間でコンテナを簡単に移行できる
 - ストレージやネットワークデバイスを無停止でアタッチ/デタッチできる
+- OpenStackの各コンポーネントを分離するのに便利っぽい
+- OpenStack Nova(Compute)のプラグインがある
 
-* デモサイトがある
+* すぐ試せる
 
 オンラインデモ
 .link https://linuxcontainers.org/ja/lxd/try-it/
-
 
 * 情報源
 
